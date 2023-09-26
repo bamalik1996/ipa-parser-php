@@ -6,6 +6,11 @@
 
 This is where your description should go. Try and limit it to a paragraph or two, and maybe throw in a mention of what PSRs you support to avoid any confusion with users and contributors.
 
+## Description
+
+The PHP IPA ISO Parser is a robust tool tailored for extracting and interpreting data from IPA (iOS App Store Package) builds. Seamlessly dive into the core details of any IPA file, retrieve essential metadata, and streamline your iOS app analysis and deployment processes with this efficient package.
+
+
 ## Installation
 
 You can install the package via composer:
@@ -17,14 +22,23 @@ composer require bamalik1996/ipa-parser-php
 ## Usage
 
 ```php
-// Usage description here
+$parser = new IPAParser('path_to_your_ipa_file.ipa');
+
+if ($parser->extractInfoPlist()) {
+    $parser->convertPlistToXml();
+    $appInfo = $parser->getAppInfo();
+
+    echo "App Name: " . $appInfo['CFBundleName'] . "\n";
+    echo "Bundle Identifier: " . $appInfo['CFBundleIdentifier'] . "\n";
+    echo "Version: " . $appInfo['CFBundleShortVersionString'] . "\n";
+    // ... and so on for other keys you're interested in
+} else {
+    echo "Failed to extract Info.plist.";
+}
+
 ```
 
-### Testing
 
-```bash
-composer test
-```
 
 ### Changelog
 
@@ -34,19 +48,9 @@ Please see [CHANGELOG](CHANGELOG.md) for more information what has changed recen
 
 Please see [CONTRIBUTING](CONTRIBUTING.md) for details.
 
-### Security
 
-If you discover any security related issues, please email bilalmalik531996@gmail.com instead of using the issue tracker.
 
 ## Credits
 
 -   [Bilal Ahmed Malik](https://github.com/bamalik1996)
--   [All Contributors](../../contributors)
 
-## License
-
-The MIT License (MIT). Please see [License File](LICENSE.md) for more information.
-
-## PHP Package Boilerplate
-
-This package was generated using the [PHP Package Boilerplate](https://laravelpackageboilerplate.com) by [Beyond Code](http://beyondco.de/).
