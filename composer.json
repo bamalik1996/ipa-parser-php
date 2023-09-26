@@ -1,0 +1,42 @@
+{
+    "name": "bamalik1996/ipa-parser-php",
+    "description": "The PHP IPA ISO Parser is a robust tool tailored for extracting and interpreting data from IPA (iOS App Store Package) builds. Seamlessly dive into the core details of any IPA file, retrieve essential metadata, and streamline your iOS app analysis and deployment processes with this efficient package.",
+    "keywords": [
+        "bamalik1996",
+        "ipa-parser-php"
+    ],
+    "homepage": "https://github.com/bamalik1996/ipa-parser-php",
+    "license": "MIT",
+    "type": "library",
+    "authors": [
+        {
+            "name": "Bilal Ahmed Malik",
+            "email": "bilalmalik531996@gmail.com",
+            "role": "Developer"
+        }
+    ],
+    "require": {
+        "php": "^7.4|^8.0"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "^9.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "Bamalik1996\\IpaParserPhp\\": "src"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Bamalik1996\\IpaParserPhp\\Tests\\": "tests"
+        }
+    },
+    "scripts": {
+        "test": "vendor/bin/phpunit",
+        "test-coverage": "vendor/bin/phpunit --coverage-html coverage"
+
+    },
+    "config": {
+        "sort-packages": true
+    }
+}
